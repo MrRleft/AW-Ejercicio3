@@ -3,10 +3,10 @@
 	<div class="saludo">
 	<?php
 	if (isset($_SESSION["login"]) && ($_SESSION["login"]===true)) {
-		echo "Bienvenido, " . $_SESSION['nombre'] . ".<a href='/AW-Ejercicio3/01-inicio/logout.php'>(salir)</a>";
+		echo "Bienvenido, " . $_SESSION['nombre'] . ".<a href= '".$GLOBALS["URL"]."logout.php'>(salir)</a>";
 		
 	} else {
-		echo "Usuario desconocido. <a href='AW-Ejercicio3/01-inicio/login.php'>Login</a> <a href='/AW-Ejercicio3/01-inicio/login.php/registro.php'>Registro</a>";
+		echo "Usuario desconocido. <a href='".$GLOBALS["URL"]."login.php'>Login</a> <a href='".$GLOBALS["URL"]."registro.php'>Registro</a>";
 	}
 	?>
 	</div>

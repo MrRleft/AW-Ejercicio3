@@ -1,7 +1,7 @@
 <?php
 
 //Inicio del procesamiento
-session_start();
+require_once 'config.php';
 
 if (! isset($_POST['login']) ) {
 	header('Location: ./login.php');
@@ -47,7 +47,7 @@ if (count($erroresFormulario) === 0) {
 			$_SESSION['login'] = true;
 			$_SESSION['nombre'] = $nombreUsuario;
 			$_SESSION['esAdmin'] = strcmp($fila['rol'], 'admin') == 0 ? true : false;
-			header('Location: ./index.php');
+			header('Location: '.$GLOBALS["URL"].'/index.php');
 			exit();
 		}
 		$rs->free();
