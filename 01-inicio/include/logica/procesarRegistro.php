@@ -3,7 +3,7 @@
 session_start();
 
 if (! isset($_POST['registro']) ) {
-	header('Location: registro.php');
+	header('Location: ./registro.php');
 	exit();
 }
 
@@ -56,7 +56,7 @@ if (count($erroresFormulario) === 0) {
 			if ( $conn->query($query) ) {
 				$_SESSION['login'] = true;
 				$_SESSION['nombre'] = $nombreUsuario;
-				header('Location: index.php');
+				header('Location: ./index.php');
 				exit();
 			} else {
 				echo "Error al insertar en la BD: (" . $conn->errno . ") " . utf8_encode($conn->error);
@@ -74,7 +74,7 @@ if (count($erroresFormulario) === 0) {
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="estilo.css" />
+<link rel="stylesheet" type="text/css" href="../css/estilo.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Registro</title>
 </head>
@@ -84,8 +84,8 @@ if (count($erroresFormulario) === 0) {
 <div id="contenedor">
 
 <?php
-	require("cabecera.php");
-	require("sidebarIzq.php");
+	require("../../include/comun/cabecera.php");
+	require("../../include/comun/sidebarIzq.php");
 ?>
 
 	<div id="contenido">
@@ -121,8 +121,8 @@ if (count($erroresFormulario) > 0) {
 	</div>
 
 <?php
-	require("sidebarDer.php");
-	require("pie.php");
+	require("../../include/comun/sidebarDer.php");
+	require("../../include/comun/pie.php");
 ?>
 
 

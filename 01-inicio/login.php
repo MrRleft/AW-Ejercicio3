@@ -8,7 +8,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="estilo.css" />
+<link rel="stylesheet" type="text/css" href="include/css/estilo.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Login</title>
 </head>
@@ -18,14 +18,14 @@ session_start();
 <div id="contenedor">
 
 <?php
-	require("cabecera.php");
-	require("sidebarIzq.php");
+	require("include/comun/cabecera.php");
+	require("include/comun/sidebarIzq.php");
 ?>
 
 	<div id="contenido">
 		<h1>Acceso al sistema</h1>
 
-		<form action="procesarLogin.php" method="POST">
+		<form action="include/logica/procesarLogin.php" method="POST">
 		<fieldset>
             <legend>Usuario y contraseña</legend>
             <div class="grupo-control">
@@ -42,8 +42,8 @@ session_start();
 	</div>
 
 <?php
-	require("sidebarDer.php");
-	require("pie.php");
+	require("include/comun/sidebarDer.php");
+	require("include/comun/pie.php");
 ?>
 
 

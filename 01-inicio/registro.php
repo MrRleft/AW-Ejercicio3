@@ -8,7 +8,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="estilo.css" />
+<link rel="stylesheet" type="text/css" href="include/css/estilo.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Registro</title>
 </head>
@@ -18,14 +18,14 @@ session_start();
 <div id="contenedor">
 
 <?php
-	require("cabecera.php");
-	require("sidebarIzq.php");
+	require("include/comun/cabecera.php");
+	require("include/comun/sidebarIzq.php");
 ?>
 
 	<div id="contenido">
 		<h1>Registro de usuario</h1>
 
-		<form action="procesarRegistro.php" method="POST">
+		<form action="include/logica/procesarRegistro.php" method="POST">
 		<fieldset>
 			<div class="grupo-control">
 				<label>Nombre de usuario:</label> <input class="control" type="text" name="nombreUsuario" />
@@ -45,8 +45,8 @@ session_start();
 	</div>
 
 <?php
-	require("sidebarDer.php");
-	require("pie.php");
+	require("include/comun/sidebarDer.php");
+	require("include/comun/pie.php");
 ?>
 
 

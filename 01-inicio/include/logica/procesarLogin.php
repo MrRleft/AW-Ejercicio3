@@ -4,7 +4,7 @@
 session_start();
 
 if (! isset($_POST['login']) ) {
-	header('Location: login.php');
+	header('Location: ./login.php');
 	exit();
 }
 
@@ -47,7 +47,7 @@ if (count($erroresFormulario) === 0) {
 			$_SESSION['login'] = true;
 			$_SESSION['nombre'] = $nombreUsuario;
 			$_SESSION['esAdmin'] = strcmp($fila['rol'], 'admin') == 0 ? true : false;
-			header('Location: index.php');
+			header('Location: ./index.php');
 			exit();
 		}
 		$rs->free();
@@ -62,7 +62,7 @@ if (count($erroresFormulario) === 0) {
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="estilo.css" />
+<link rel="stylesheet" type="text/css" href="../css/estilo.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Login</title>
 </head>
@@ -72,8 +72,8 @@ if (count($erroresFormulario) === 0) {
 <div id="contenedor">
 
 <?php
-	require("cabecera.php");
-	require("sidebarIzq.php");
+	require("../comun/cabecera.php");
+	require("../comun/sidebarIzq.php");
 ?>
 
 	<div id="contenido">
@@ -113,8 +113,8 @@ if (count($erroresFormulario) === 0) {
 	</div>
 
 <?php
-	require("sidebarDer.php");
-	require("pie.php");
+	require("../comun/sidebarDer.php");
+	require("../comun/pie.php");
 ?>
 
 

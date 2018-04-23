@@ -15,7 +15,7 @@ session_destroy();
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="estilo.css" />
+<link rel="stylesheet" type="text/css" href="include/css/estilo.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Portada</title>
 </head>
@@ -25,8 +25,8 @@ session_destroy();
 <div id="contenedor">
 
 <?php
-	require("cabecera.php");
-	require("sidebarIzq.php");
+	require("include/comun/cabecera.php");
+	require("include/comun/sidebarIzq.php");
 ?>
 
 	<div id="contenido">
@@ -34,8 +34,8 @@ session_destroy();
 	</div>
 
 <?php
-	require("sidebarDer.php");
-	require("pie.php");
+	require("include/comun/sidebarDer.php");
+	require("include/comun/pie.php");
 ?>
 
 
