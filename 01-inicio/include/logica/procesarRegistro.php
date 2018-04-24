@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__.'\config.php';
+require_once 'Aplicacion.php';
 
 if (! isset($_POST['registro']) ) {
 	header('Location: ./registro.php');
@@ -31,7 +32,7 @@ if ( empty($password2) || strcmp($password, $password2) !== 0 ) {
 }
 
 if (count($erroresFormulario) === 0) {
-	$conn = new \mysqli('localhost', 'root', '', 'ejercicio3');
+	/*$conn = new \mysqli('localhost', 'root', '', 'ejercicio3');
 	if ( $conn->connect_errno ) {
 		echo "Error de conexión a la BD: (" . $this->conn->connect_errno . ") " . utf8_encode($this->conn->connect_error);
 		exit();
@@ -39,7 +40,8 @@ if (count($erroresFormulario) === 0) {
 	if ( ! $conn->set_charset("utf8mb4")) {
 		echo "Error al configurar la codificación de la BD: (" . $this->conn->errno . ") " . utf8_encode($this->conn->error);
 		exit();
-	}
+	}*/
+	$conn = $app->conexionBd();
 	
 	$query=sprintf("SELECT * FROM Usuarios U WHERE U.nombreUsuario = '%s'", $conn->real_escape_string($nombreUsuario));
 	$rs = $conn->query($query);
@@ -74,7 +76,7 @@ if (count($erroresFormulario) === 0) {
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href=" <?php $GLOBALS["URL"]?> /css/estilo.css" />
+<link rel="stylesheet" type="text/css" href="../css/estilo.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Registro</title>
 </head>
@@ -84,8 +86,9 @@ if (count($erroresFormulario) === 0) {
 <div id="contenedor">
 
 <?php
-	require( $GLOBALS["URL"]."/include/comun/cabecera.php");
-	require( $GLOBALS["URL"]."/include/comun/sidebarIzq.php");
+	
+	require("../comun/cabecera.php");
+	require("../comun/sidebarIzq.php");
 ?>
 
 	<div id="contenido">
@@ -121,8 +124,8 @@ if (count($erroresFormulario) > 0) {
 	</div>
 
 <?php
-	require( $GLOBALS["URL"]."/include/comun/sidebarDer.php");
-	require( $GLOBALS["URL"]."/include/comun/pie.php");
+	require("../comun/sidebarDer.php");
+	require("../comun/pie.php");
 ?>
 
 
