@@ -2,6 +2,7 @@
 
 //Inicio del procesamiento
 require_once __DIR__.'/include/logica/config.php';
+require_once __DIR__.'/include/logica/Usuario.php';
 require_once __DIR__.'/include/logica/FormularioRegistro.php';
 ?>
 
@@ -46,7 +47,7 @@ require_once __DIR__.'/include/logica/FormularioRegistro.php';
 
 			<?php
 			$opciones = array();
-			$formulario = new FormularioLogin("formRegistro", $opciones);
+			$formulario = new FormularioRegistro("formRegistro", $opciones);
 			$formulario->gestiona();
 			?>
 

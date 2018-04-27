@@ -1,11 +1,27 @@
 <?php
 
-include(Form.php);
+include('Form.php');
 
 
 class FormularioLogin extends Form{
 
-	public function procesaFormulario(){
+	public function generaCamposFormulario($datosIniciales)
+    {
+     
+       return '<fieldset>
+            <legend>Usuario y contraseña</legend>
+            <div class="grupo-control">
+                <label> Nombre de usuario: </label> <input type="text" name="nombreUsuario" />
+            </div>
+            <div class="grupo-control">
+                <label> Password: </label> <input type="password" name="password" />
+            </div>
+            <div class="grupo-control"><button type="submit" name="login">Entrar</button></div>
+        </fieldset>';
+        
+    }
+
+	public function procesaFormulario($datos){
 
 		if (! isset($_POST['login']) ) {
 			header('Location: ./login.php');
@@ -47,25 +63,6 @@ class FormularioLogin extends Form{
 			    }
 			}
 		}
-	}
-
-	public function generaFormulario(){
-
-		?>
-
-		<fieldset>
-            <legend>Usuario y contraseña</legend>
-            <div class="grupo-control">
-                <label>Nombre de usuario:</label> <input type="text" name="nombreUsuario" />
-            </div>
-            <div class="grupo-control">
-                <label>Password:</label> <input type="password" name="password" />
-            </div>
-            <div class="grupo-control"><button type="submit" name="login">Entrar</button></div>
-		</fieldset>
-		
-		<?php
-
 	}
 
 }

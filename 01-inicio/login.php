@@ -2,6 +2,7 @@
 
 //Inicio del procesamiento
 require_once __DIR__.'/include/logica/config.php';
+require_once __DIR__.'/include/logica/Usuario.php';
 require_once __DIR__.'/include/logica/FormularioLogin.php';
 ?>
 
