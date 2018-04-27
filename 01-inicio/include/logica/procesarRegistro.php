@@ -1,7 +1,8 @@
 <?php
 
 require_once __DIR__.'\config.php';
-require_once 'Aplicacion.php';
+//require_once 'Aplicacion.php';
+require_once 'Usuario.php';
 
 if (! isset($_POST['registro']) ) {
 	header('Location: ./registro.php');
@@ -32,41 +33,13 @@ if ( empty($password2) || strcmp($password, $password2) !== 0 ) {
 }
 
 if (count($erroresFormulario) === 0) {
-	/*$conn = new \mysqli('localhost', 'root', '', 'ejercicio3');
-	if ( $conn->connect_errno ) {
-		echo "Error de conexión a la BD: (" . $this->conn->connect_errno . ") " . utf8_encode($this->conn->connect_error);
-		exit();
-	}
-	if ( ! $conn->set_charset("utf8mb4")) {
-		echo "Error al configurar la codificación de la BD: (" . $this->conn->errno . ") " . utf8_encode($this->conn->error);
-		exit();
-	}*/
-	$conn = $app->conexionBd();
-	
-	$query=sprintf("SELECT * FROM Usuarios U WHERE U.nombreUsuario = '%s'", $conn->real_escape_string($nombreUsuario));
-	$rs = $conn->query($query);
-	if ($rs) {
-		if ( $rs->num_rows > 0 ) {
-			$erroresFormulario[] = "El usuario ya existe";
-			$rs->free();
-		} else {
-			$query=sprintf("INSERT INTO Usuarios(nombreUsuario, nombre, password, rol) VALUES('%s', '%s', '%s', '%s')"
-					, $conn->real_escape_string($nombreUsuario)
-					, $conn->real_escape_string($nombre)
-					, password_hash($password, PASSWORD_DEFAULT)
-					, 'user');
-			if ( $conn->query($query) ) {
-				$_SESSION['login'] = true;
-				$_SESSION['nombre'] = $nombreUsuario;
-				header('Location: '.$GLOBALS["URL"]. 'index.php');
-				exit();
-			} else {
-				echo "Error al insertar en la BD: (" . $conn->errno . ") " . utf8_encode($conn->error);
-				exit();
-			}
-		}		
+	$usuario = Usuario::crea($nombreUsuario, $nombre, $password, 'user');
+	if (! $usuario ) {
+    	$erroresFormulario[] = "El usuario ya existe";
 	} else {
-		echo "Error al consultar en la BD: (" . $conn->errno . ") " . utf8_encode($conn->error);
+		$_SESSION['login'] = true;
+		$_SESSION['nombre'] = $nombreUsuario;
+		header('Location: /AW-Ejercicio3/01-inicio/index.php');
 		exit();
 	}
 }
