@@ -22,6 +22,8 @@ require_once __DIR__.'/include/logica/config.php';
 ?>
 
 	<div id="contenido">
+
+		<!--
 		<h1>Acceso al sistema</h1>
 
 		<form action="include/logica/procesarLogin.php" method="POST">
@@ -37,7 +39,14 @@ require_once __DIR__.'/include/logica/config.php';
 		</fieldset>
 		</form>
 
+		-->
+		<h1>Acceso al sistema</h1>
 
+			<?php
+			$opciones = array();
+			$formulario = new FormularioLogin("formLogin", $opciones);
+			$formulario->gestiona();
+			?>
 	</div>
 
 <?php

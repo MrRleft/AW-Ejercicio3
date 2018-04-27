@@ -22,6 +22,7 @@ require_once __DIR__.'/include/logica/config.php';
 ?>
 
 	<div id="contenido">
+		<!--
 		<h1>Registro de usuario</h1>
 
 		<form action="include/logica/procesarRegistro.php" method="POST">
@@ -39,7 +40,14 @@ require_once __DIR__.'/include/logica/config.php';
 			<div class="grupo-control"><button type="submit" name="registro">Registrar</button></div>
 		</fieldset>
 		</form>
+		-->
+		<h1>Registro de usuario</h1>
 
+			<?php
+			$opciones = array();
+			$formulario = new FormularioLogin("formRegistro", $opciones);
+			$formulario->gestiona();
+			?>
 
 	</div>
 
