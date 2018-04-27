@@ -2,6 +2,7 @@
 
 //Inicio del procesamiento
 require_once __DIR__.'/include/logica/config.php';
+require_once __DIR__.'/include/logica/FormularioLogin.php';
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +44,7 @@ require_once __DIR__.'/include/logica/config.php';
 		<h1>Acceso al sistema</h1>
 
 			<?php
+
 			$opciones = array();
 			$formulario = new FormularioLogin("formLogin", $opciones);
 			$formulario->gestiona();
